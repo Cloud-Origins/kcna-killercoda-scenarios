@@ -24,7 +24,7 @@ Every scenario applies one or more of:
 | 6 | Network Policies | 3 | Container Orch. (28%) | 50m | `core/12-network-policies` | done |
 | 7 | Troubleshooting Drill | 3 | Container Orch. (28%) | 55m | `electives/06-troubleshooting` | done |
 | 8 | kubectl Tooling & Contexts | 4 | K8s Fundamentals (44%) | 30m | `core/17-kubectl-tooling` | done |
-| 9 | Pods & Multi-container Patterns | 4 | K8s Fundamentals (44%) | 50m | `core/01-pods` | todo |
+| 9 | Pods & Multi-container Patterns | 4 | K8s Fundamentals (44%) | 50m | `core/01-pods` | done |
 | 10 | Labels & Selectors | 4 | K8s Fundamentals (44%) | 30m | `core/09-labels-selectors` | todo |
 | 11 | Fundamentals Quiz Bank | 4 | K8s Fundamentals (44%) | 30m | `kcna/01-fundamentals-quiz` | todo |
 | 12 | Deployments & ReplicaSets | 5 | K8s Fundamentals (44%) | 55m | `core/02-deployments-replicasets` | todo |
