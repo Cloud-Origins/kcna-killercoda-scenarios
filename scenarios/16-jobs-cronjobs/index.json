@@ -1,0 +1,14 @@
+{
+  "title": "Jobs & CronJobs",
+  "description": "Run-to-completion work with a Job, scheduled work with a CronJob. KCNA K8s Fundamentals domain, Jobs and CronJobs",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a Job that runs to completion", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Create a CronJob and watch it fire", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
