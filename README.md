@@ -18,9 +18,9 @@ Every scenario applies one or more of:
 |---|---|---|---|---|---|---|
 | 1 | Nodes & Cluster Components | 1-2 | Architecture (12%) | 45m | `core/16-nodes-components` | done |
 | 2 | Services: ClusterIP -> NodePort | 3 | Container Orch. (28%) | 45m | `core/10-services` | done |
-| 3 | Namespaces & Resource Quotas | 3 | Container Orch. (28%) | 40m | `core/08-namespaces-resourcequotas` | todo |
-| 4 | Persistent Storage: PV/PVC | 3 | Container Orch. (28%) | 50m | `core/13-persistent-storage` | todo |
-| 5 | Ingress & Gateway API | 3 | Container Orch. (28%) | 55m | `core/11-ingress-gateway` | todo |
+| 3 | Namespaces & Resource Quotas | 3 | Container Orch. (28%) | 40m | `core/08-namespaces-resourcequotas` | done |
+| 4 | Persistent Storage: PV/PVC | 3 | Container Orch. (28%) | 50m | `core/13-persistent-storage` | done |
+| 5 | Ingress & Gateway API | 3 | Container Orch. (28%) | 55m | `core/11-ingress-gateway` | done |
 | 6 | Network Policies | 3 | Container Orch. (28%) | 50m | `core/12-network-policies` | todo |
 | 7 | Troubleshooting Drill | 3 | Container Orch. (28%) | 55m | `electives/06-troubleshooting` | todo |
 | 8 | kubectl Tooling & Contexts | 4 | K8s Fundamentals (44%) | 30m | `core/17-kubectl-tooling` | todo |
