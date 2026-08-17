@@ -44,7 +44,7 @@ Every scenario applies one or more of:
 | 26 | HPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | done |
 | 27 | VPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | done |
 | 28 | Serverless: Knative Scale-to-Zero | 1-2 | Architecture (12%) | 55m | gap-fill (self-authored) | done |
-| 29 | CNCF Landscape Quiz | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | todo |
+| 29 | CNCF Landscape Quiz | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | done |
 | 30 | Logging Basics | 7 | Observability (12%) | 25m | gap-fill (self-authored) | todo |
 | 31 | Grafana Dashboards | 7 | Observability (12%) | 45m | gap-fill (self-authored) | todo |
 | 32 | OpenTelemetry Traces | 7 | Observability (12%) | 50m | gap-fill (self-authored) | todo |
