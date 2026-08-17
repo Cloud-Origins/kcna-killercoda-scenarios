@@ -40,7 +40,7 @@ Every scenario applies one or more of:
 | 22 | Intro to Containers: crictl & containerd | 1-2 | Architecture (12%) | 30m | gap-fill (self-authored) | done |
 | 23 | Orchestration Why: Manual vs Controller | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | done |
 | 24 | Rolling Updates | 5 | K8s Fundamentals (44%) | 35m | gap-fill (self-authored) | done |
-| 25 | Rollbacks | 5 | K8s Fundamentals (44%) | 30m | gap-fill (self-authored) | todo |
+| 25 | Rollbacks | 5 | K8s Fundamentals (44%) | 30m | gap-fill (self-authored) | done |
 | 26 | HPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
 | 27 | VPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
 | 28 | Serverless: Knative Scale-to-Zero | 1-2 | Architecture (12%) | 55m | gap-fill (self-authored) | todo |
