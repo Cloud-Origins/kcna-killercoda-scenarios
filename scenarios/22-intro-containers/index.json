@@ -1,0 +1,14 @@
+{
+  "title": "Intro to Containers: crictl & containerd",
+  "description": "Inspect running containers directly through the container runtime, below kubelet, using crictl against containerd. KCNA Architecture domain, container runtimes",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Find a container at the runtime layer", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Read logs and exec directly through the runtime", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
