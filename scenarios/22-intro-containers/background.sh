@@ -6,3 +6,5 @@ mkdir -p /root/kcna-scratch
 
 kubectl run runtime-demo --image=nginx:1.27 --restart=Never
 kubectl wait --for=condition=Ready pod/runtime-demo --timeout=60s
+
+touch /tmp/kcna-background-done

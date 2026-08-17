@@ -11,3 +11,5 @@ fi
 
 kubectl taint node "$TARGET" dedicated=labs:NoSchedule --overwrite
 echo "$TARGET" > /root/kcna-scratch/tainted-node.txt
+
+touch /tmp/kcna-background-done

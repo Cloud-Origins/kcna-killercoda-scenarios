@@ -8,3 +8,5 @@ mkdir -p /root/kcna-scratch
 # forever with no error surfaced to Killercoda's Debug panel.
 timeout 60 kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 kubectl -n tekton-pipelines wait --for=condition=Available deployment --all --timeout=180s
+
+touch /tmp/kcna-background-done

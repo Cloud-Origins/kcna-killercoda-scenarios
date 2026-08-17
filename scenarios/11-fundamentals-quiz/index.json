@@ -2,13 +2,28 @@
   "title": "Fundamentals Quiz Bank",
   "description": "Ten scored multiple-choice questions covering architecture, CRI/CNI/CSI, cloud native concepts, and observability. KCNA K8s Fundamentals domain, self-assessment",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Architecture and container interfaces (5 questions)", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Cloud native concepts and observability (5 questions)", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Architecture and container interfaces (5 questions)",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Cloud native concepts and observability (5 questions)",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

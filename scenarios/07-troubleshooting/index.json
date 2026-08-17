@@ -3,7 +3,8 @@
   "description": "Two independent breakages in one app, no building -- pure diagnose-and-fix. KCNA Container Orchestration domain, Troubleshooting",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {

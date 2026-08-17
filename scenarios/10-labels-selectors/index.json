@@ -2,13 +2,28 @@
   "title": "Labels & Selectors",
   "description": "Label three Pods, then query them with single, AND, and set-based selectors. KCNA K8s Fundamentals domain, labels and selectors",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Create three labeled Pods", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Query with AND and set-based selectors", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Create three labeled Pods",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Query with AND and set-based selectors",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

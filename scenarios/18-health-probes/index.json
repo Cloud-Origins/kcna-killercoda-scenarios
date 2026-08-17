@@ -2,13 +2,28 @@
   "title": "Health Probes",
   "description": "Build a Deployment with liveness and readiness probes, then break readiness alone and prove the pod stays Running but drops out of Service endpoints. KCNA K8s Fundamentals domain, health probes",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Create a Deployment with liveness and readiness probes", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Break readiness only and prove the distinction", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Create a Deployment with liveness and readiness probes",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Break readiness only and prove the distinction",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

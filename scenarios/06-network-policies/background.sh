@@ -7,3 +7,5 @@ kubectl wait --for=condition=Ready pod/backend --timeout=60s
 kubectl wait --for=condition=Ready pod/frontend --timeout=60s
 
 mkdir -p /root/kcna-scratch
+
+touch /tmp/kcna-background-done

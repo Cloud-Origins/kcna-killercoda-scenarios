@@ -2,13 +2,28 @@
   "title": "Pods & Multi-container Patterns",
   "description": "Create a plain Pod, then a two-container sidecar Pod sharing an emptyDir volume. KCNA K8s Fundamentals domain, Pod design",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Create a single-container Pod", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Create a sidecar Pod sharing a volume", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Create a single-container Pod",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Create a sidecar Pod sharing a volume",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

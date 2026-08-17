@@ -19,3 +19,5 @@ for i in $(seq 1 20); do
   fi
   sleep 10
 done
+
+touch /tmp/kcna-background-done

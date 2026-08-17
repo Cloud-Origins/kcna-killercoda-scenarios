@@ -48,3 +48,5 @@ spec:
 EOF
 
 kubectl wait --for=condition=Available deployment/jaeger --timeout=120s
+
+touch /tmp/kcna-background-done

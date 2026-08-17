@@ -2,13 +2,28 @@
   "title": "OpenTelemetry Traces",
   "description": "Send a real OTLP trace straight into Jaeger's native OTLP receiver, then query it back out to prove the tracing pipeline end to end. KCNA Observability domain, distributed tracing",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Send a trace via OTLP/HTTP", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Query the trace back out of Jaeger", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Send a trace via OTLP/HTTP",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Query the trace back out of Jaeger",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

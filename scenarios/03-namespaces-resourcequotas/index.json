@@ -3,7 +3,8 @@
   "description": "Diagnose a quota-blocked pod and fix it -- KCNA Container Orchestration domain",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {

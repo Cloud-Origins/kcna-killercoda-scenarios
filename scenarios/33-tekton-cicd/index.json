@@ -2,13 +2,28 @@
   "title": "Tekton CI/CD",
   "description": "Chain two Tasks into a Pipeline that pass an artifact through a shared workspace, then prove Tekton fails loudly when a stage produces the wrong thing. KCNA Application Delivery domain, CI/CD",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Chain two Tasks into a Pipeline", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Prove a broken stage fails the whole run", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Chain two Tasks into a Pipeline",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Prove a broken stage fails the whole run",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

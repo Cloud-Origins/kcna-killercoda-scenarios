@@ -53,3 +53,5 @@ spec:
               values:
                 - "true"
 EOF
+
+touch /tmp/kcna-background-done

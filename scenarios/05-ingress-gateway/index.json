@@ -3,7 +3,8 @@
   "description": "Route HTTP traffic to two pre-deployed backends by path -- KCNA Container Orchestration domain, Networking",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {

@@ -2,13 +2,28 @@
   "title": "Serverless: Knative Scale-to-Zero",
   "description": "Deploy a Knative Service, drive traffic to scale it up, then watch it scale all the way to zero pods when idle. KCNA Cloud Native Architecture domain, serverless",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Deploy a Knative Service and hit it through Kourier", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Go idle and watch it scale to zero", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Deploy a Knative Service and hit it through Kourier",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Go idle and watch it scale to zero",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

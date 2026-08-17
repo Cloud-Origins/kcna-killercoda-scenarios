@@ -23,3 +23,5 @@ kubectl patch configmap/config-autoscaler -n knative-serving --type merge \
 
 kubectl -n knative-serving wait --for=condition=Available deployment --all --timeout=240s
 kubectl -n kourier-system wait --for=condition=Available deployment --all --timeout=240s
+
+touch /tmp/kcna-background-done

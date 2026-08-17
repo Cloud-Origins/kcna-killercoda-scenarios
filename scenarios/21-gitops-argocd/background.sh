@@ -15,3 +15,5 @@ timeout 60 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj
 kubectl -n argocd wait --for=condition=Available deployment/argocd-repo-server --timeout=300s
 kubectl -n argocd wait --for=condition=Available deployment/argocd-server --timeout=300s
 kubectl -n argocd rollout status statefulset/argocd-application-controller --timeout=300s
+
+touch /tmp/kcna-background-done

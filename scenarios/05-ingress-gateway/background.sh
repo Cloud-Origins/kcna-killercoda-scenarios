@@ -15,3 +15,5 @@ kubectl wait --namespace ingress-nginx \
 kubectl apply -f assets/backends.yaml
 kubectl wait --for=condition=Available deployment/app1 --timeout=90s
 kubectl wait --for=condition=Available deployment/app2 --timeout=90s
+
+touch /tmp/kcna-background-done

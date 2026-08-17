@@ -3,7 +3,8 @@
   "description": "Expose a pre-deployed backend internally then externally -- KCNA Container Orchestration domain, Networking",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {

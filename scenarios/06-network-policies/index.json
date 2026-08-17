@@ -3,7 +3,8 @@
   "description": "Diagnose a NetworkPolicy that's silently blocking legitimate traffic -- KCNA Container Orchestration domain, Security/Networking",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {

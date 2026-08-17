@@ -2,13 +2,28 @@
   "title": "Final Mock Exam",
   "description": "A timed, multi-part practical touching Architecture, Container Orchestration, K8s Fundamentals, and Observability in one sitting -- the capstone review for the whole track.",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Part A: Diagnose and build", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Part B: Operate and observe", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Part A: Diagnose and build",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Part B: Operate and observe",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

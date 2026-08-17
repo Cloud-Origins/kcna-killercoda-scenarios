@@ -2,13 +2,28 @@
   "title": "Logging Basics",
   "description": "Read logs from a specific container in a multi-container pod, then read a crashed container's last logs with --previous. KCNA Observability domain, kubectl logs",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Read logs from one container among several", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Read a crashed container's logs with --previous", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Read logs from one container among several",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Read a crashed container's logs with --previous",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

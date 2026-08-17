@@ -38,3 +38,5 @@ helm install grafana grafana/grafana \
 
 kubectl -n monitoring wait --for=condition=Ready pod -l app.kubernetes.io/name=prometheus,app.kubernetes.io/component=server --timeout=180s
 kubectl -n monitoring wait --for=condition=Ready pod -l app.kubernetes.io/name=grafana --timeout=180s
+
+touch /tmp/kcna-background-done

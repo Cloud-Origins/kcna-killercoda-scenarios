@@ -6,3 +6,5 @@ mkdir -p /root/kcna-scratch
 
 kubectl create deployment web --image=nginx:1.26 --replicas=3
 kubectl rollout status deployment/web --timeout=90s
+
+touch /tmp/kcna-background-done

@@ -9,3 +9,5 @@ if ! command -v helm >/dev/null 2>&1; then
   # background.sh forever with no error surfaced to Killercoda's Debug panel.
   curl -fsSL --max-time 30 https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 fi
+
+touch /tmp/kcna-background-done

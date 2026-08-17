@@ -2,13 +2,28 @@
   "title": "Scheduling: Affinity & Taints",
   "description": "Watch an untolerated Pod stay Pending against a tainted node, then get a Pod scheduled there with node affinity and a matching toleration. KCNA K8s Fundamentals domain, scheduling",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Diagnose a Pod stuck Pending against a taint", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Schedule onto the tainted node with affinity and a toleration", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Diagnose a Pod stuck Pending against a taint",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Schedule onto the tainted node with affinity and a toleration",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

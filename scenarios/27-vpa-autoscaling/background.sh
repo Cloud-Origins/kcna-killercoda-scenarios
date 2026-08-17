@@ -26,3 +26,5 @@ timeout 300 ./hack/vpa-up.sh
 kubectl -n kube-system wait --for=condition=Available deployment/vpa-recommender --timeout=180s
 kubectl -n kube-system wait --for=condition=Available deployment/vpa-updater --timeout=180s
 kubectl -n kube-system wait --for=condition=Available deployment/vpa-admission-controller --timeout=180s
+
+touch /tmp/kcna-background-done

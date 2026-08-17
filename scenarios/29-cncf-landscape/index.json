@@ -2,13 +2,28 @@
   "title": "CNCF Landscape Quiz",
   "description": "Ten scored questions on the CNCF maturity model, governance, and long-standing Graduated flagship projects. KCNA Cloud Native Architecture domain, CNCF landscape",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Maturity model and governance (5 questions)", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Flagship Graduated projects (5 questions)", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Maturity model and governance (5 questions)",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Flagship Graduated projects (5 questions)",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

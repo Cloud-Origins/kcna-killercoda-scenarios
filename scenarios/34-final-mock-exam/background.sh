@@ -73,3 +73,5 @@ for i in $(seq 1 30); do
   fi
   sleep 3
 done
+
+touch /tmp/kcna-background-done

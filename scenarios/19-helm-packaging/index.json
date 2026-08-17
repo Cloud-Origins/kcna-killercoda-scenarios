@@ -2,13 +2,28 @@
   "title": "Helm Packaging",
   "description": "Scaffold a chart, install it, upgrade a value, then roll back to the previous revision. KCNA Application Delivery domain, Helm",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Scaffold and install a chart", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Upgrade a value, then roll back", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Scaffold and install a chart",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Upgrade a value, then roll back",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }

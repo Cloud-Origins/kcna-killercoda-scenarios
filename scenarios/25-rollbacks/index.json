@@ -2,13 +2,28 @@
   "title": "Rollbacks",
   "description": "Ship a broken image on purpose, watch the rollout stall, then undo it back to the last good revision. KCNA K8s Fundamentals domain, rollbacks",
   "details": {
-    "intro": { "text": "intro.md" },
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh"
+    },
     "steps": [
-      { "title": "Ship a broken release and watch it stall", "text": "step1/text.md", "verify": "step1/verify.sh" },
-      { "title": "Undo the rollout", "text": "step2/text.md", "verify": "step2/verify.sh" }
+      {
+        "title": "Ship a broken release and watch it stall",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Undo the rollout",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
     ],
-    "finish": { "text": "finish.md" },
+    "finish": {
+      "text": "finish.md"
+    },
     "background": "background.sh"
   },
-  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
 }
