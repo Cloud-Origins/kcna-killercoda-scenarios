@@ -1,0 +1,14 @@
+{
+  "title": "HPA Autoscaling",
+  "description": "Install metrics-server, then watch a HorizontalPodAutoscaler actually scale replicas out under real CPU load. KCNA Cloud Native Architecture domain, autoscaling",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Install metrics-server and create an HPA", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Generate real CPU load and watch it scale out", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
