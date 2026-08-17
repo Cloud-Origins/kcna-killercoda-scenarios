@@ -1,0 +1,14 @@
+{
+  "title": "Grafana Dashboards",
+  "description": "Install Grafana wired to Prometheus, then build a dashboard through the API and prove its panel carries real, live metric data. KCNA Observability domain, dashboards",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Confirm Grafana and its Prometheus datasource", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Build a dashboard and prove its data is live", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
