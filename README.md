@@ -28,7 +28,7 @@ Every scenario applies one or more of:
 | 10 | Labels & Selectors | 4 | K8s Fundamentals (44%) | 30m | `core/09-labels-selectors` | done |
 | 11 | Fundamentals Quiz Bank | 4 | K8s Fundamentals (44%) | 30m | `kcna/01-fundamentals-quiz` | done |
 | 12 | Deployments & ReplicaSets | 5 | K8s Fundamentals (44%) | 55m | `core/02-deployments-replicasets` | done |
-| 13 | ConfigMaps & Secrets | 5 | K8s Fundamentals (44%) | 45m | `core/07-configmaps-secrets` | todo |
+| 13 | ConfigMaps & Secrets | 5 | K8s Fundamentals (44%) | 45m | `core/07-configmaps-secrets` | done |
 | 14 | DaemonSets | 5 | K8s Fundamentals (44%) | 35m | `core/03-daemonsets` | todo |
 | 15 | StatefulSets | 5 | K8s Fundamentals (44%) | 55m | `core/04-statefulsets` | todo |
 | 16 | Jobs & CronJobs | 5 | K8s Fundamentals (44%) | 40m | `core/05-jobs-cronjobs` | todo |
