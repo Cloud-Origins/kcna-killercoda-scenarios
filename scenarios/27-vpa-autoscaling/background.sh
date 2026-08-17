@@ -17,11 +17,15 @@ for i in $(seq 1 20); do
 done
 
 # VPA (updater, recommender, admission-controller) has no single install
-# manifest -- the project ships an install script instead. Both network
-# steps are timeout-wrapped so a stall fails loudly instead of hanging
-# background.sh forever with no error surfaced to Killercoda's Debug panel.
-timeout 60 git clone --depth 1 https://github.com/kubernetes/autoscaler.git /root/kcna-scratch/autoscaler
-cd /root/kcna-scratch/autoscaler/vertical-pod-autoscaler
+# manifest -- the project ships an install script instead, inside the
+# large kubernetes/autoscaler monorepo. A plain --depth 1 clone still
+# pulls every blob in the repo at that commit (hundreds of MB) and blew
+# through a 60s timeout in testing; a blobless sparse clone limited to
+# the one directory we need is ~5MB and takes seconds.
+timeout 90 git clone --filter=blob:none --sparse --depth 1 https://github.com/kubernetes/autoscaler.git /root/kcna-scratch/autoscaler
+cd /root/kcna-scratch/autoscaler
+git sparse-checkout set vertical-pod-autoscaler
+cd vertical-pod-autoscaler
 timeout 300 ./hack/vpa-up.sh
 kubectl -n kube-system wait --for=condition=Available deployment/vpa-recommender --timeout=180s
 kubectl -n kube-system wait --for=condition=Available deployment/vpa-updater --timeout=180s
