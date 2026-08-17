@@ -26,7 +26,7 @@ Every scenario applies one or more of:
 | 8 | kubectl Tooling & Contexts | 4 | K8s Fundamentals (44%) | 30m | `core/17-kubectl-tooling` | done |
 | 9 | Pods & Multi-container Patterns | 4 | K8s Fundamentals (44%) | 50m | `core/01-pods` | done |
 | 10 | Labels & Selectors | 4 | K8s Fundamentals (44%) | 30m | `core/09-labels-selectors` | done |
-| 11 | Fundamentals Quiz Bank | 4 | K8s Fundamentals (44%) | 30m | `kcna/01-fundamentals-quiz` | todo |
+| 11 | Fundamentals Quiz Bank | 4 | K8s Fundamentals (44%) | 30m | `kcna/01-fundamentals-quiz` | done |
 | 12 | Deployments & ReplicaSets | 5 | K8s Fundamentals (44%) | 55m | `core/02-deployments-replicasets` | todo |
 | 13 | ConfigMaps & Secrets | 5 | K8s Fundamentals (44%) | 45m | `core/07-configmaps-secrets` | todo |
 | 14 | DaemonSets | 5 | K8s Fundamentals (44%) | 35m | `core/03-daemonsets` | todo |
