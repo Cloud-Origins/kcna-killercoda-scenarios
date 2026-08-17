@@ -1,0 +1,28 @@
+{
+  "title": "Nodes & Cluster Components",
+  "description": "Identify control plane components and label nodes by role -- KCNA Cloud Native Architecture domain",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Find the control plane",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Label the worker",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "background": "background.sh"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
