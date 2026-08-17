@@ -1,0 +1,14 @@
+{
+  "title": "DaemonSets",
+  "description": "Run one Pod per node with a DaemonSet, then tolerate the control-plane taint to cover every node. KCNA K8s Fundamentals domain, DaemonSets",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a DaemonSet", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Tolerate the control-plane taint to cover all nodes", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
