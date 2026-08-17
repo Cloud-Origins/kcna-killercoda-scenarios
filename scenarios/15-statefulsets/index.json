@@ -1,0 +1,14 @@
+{
+  "title": "StatefulSets",
+  "description": "Stable pod identity and per-pod storage with a headless Service and a StatefulSet, then prove identity survives a pod delete. KCNA K8s Fundamentals domain, StatefulSets",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a headless Service and a StatefulSet", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Prove stable identity across a pod delete", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
