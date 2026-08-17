@@ -1,0 +1,28 @@
+{
+  "title": "Ingress & Gateway API",
+  "description": "Route HTTP traffic to two pre-deployed backends by path -- KCNA Container Orchestration domain, Networking",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Route to app1",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Add path-based routing to app2",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "background": "background.sh"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
