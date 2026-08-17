@@ -1,0 +1,12 @@
+# Pinned to match Killercoda's kubernetes-kubeadm-2nodes backend version.
+# Killercoda's creator docs (https://killercoda.com/creators) list the
+# version schedule for that backend -- bump the image tag here whenever
+# they bump theirs, so CI stays representative of the real platform.
+# Current: 1.35 (Killercoda schedule: 1.35 until 2026-09-01, then 1.36).
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.35.5@sha256:ce977ae6d65918d0b58a5f8b5e940429c2ce42fa3a5619ec2bbc60b949c0ac95
+  - role: worker
+    image: kindest/node:v1.35.5@sha256:ce977ae6d65918d0b58a5f8b5e940429c2ce42fa3a5619ec2bbc60b949c0ac95

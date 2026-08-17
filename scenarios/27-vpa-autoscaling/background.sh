@@ -21,8 +21,13 @@ done
 # large kubernetes/autoscaler monorepo. A plain --depth 1 clone still
 # pulls every blob in the repo at that commit (hundreds of MB) and blew
 # through a 60s timeout in testing; a blobless sparse clone limited to
-# the one directory we need is ~5MB and takes seconds.
-timeout 90 git clone --filter=blob:none --sparse --depth 1 https://github.com/kubernetes/autoscaler.git /root/kcna-scratch/autoscaler
+# the one directory we need is ~5MB and takes seconds. Must clone at
+# the exact tag vpa-up.sh's own DEFAULT_TAG expects to switch to --
+# a shallow clone of the default branch has no tags at all, so its
+# internal `git switch --detach vertical-pod-autoscaler-1.7.1` fails
+# outright. If VPA bumps its default version, this tag needs bumping
+# to match (see DEFAULT_TAG in hack/vpa-up.sh).
+timeout 90 git clone --filter=blob:none --sparse --depth 1 --branch vertical-pod-autoscaler-1.7.1 https://github.com/kubernetes/autoscaler.git /root/kcna-scratch/autoscaler
 cd /root/kcna-scratch/autoscaler
 git sparse-checkout set vertical-pod-autoscaler
 cd vertical-pod-autoscaler

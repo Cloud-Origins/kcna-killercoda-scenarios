@@ -1,0 +1,71 @@
+name: Validate scenarios
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scenarios/**"
+      - "scripts/**"
+      - ".github/workflows/validate-scenarios.yml"
+  pull_request:
+    paths:
+      - "scenarios/**"
+      - "scripts/**"
+      - ".github/workflows/validate-scenarios.yml"
+  workflow_dispatch: {}
+
+jobs:
+  static-validate:
+    name: Static validation (schema, files, shellcheck)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure shellcheck is available
+        run: command -v shellcheck || sudo apt-get update && sudo apt-get install -y shellcheck
+      - name: Run static validator
+        run: python3 scripts/validate-static.py
+
+  discover:
+    name: Discover scenarios
+    needs: static-validate
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list
+        run: |
+          echo "matrix=$(ls scenarios | jq -R -s -c 'split("\n")[:-1]')" >> "$GITHUB_OUTPUT"
+
+  dynamic-test:
+    name: ${{ matrix.scenario }}
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install kind and kubectl
+        run: |
+          command -v kubectl || {
+            curl -Lo ./kubectl "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+            chmod +x ./kubectl
+            sudo mv ./kubectl /usr/local/bin/kubectl
+          }
+          command -v kind || {
+            curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.30.0/kind-linux-amd64
+            chmod +x ./kind
+            sudo mv ./kind /usr/local/bin/kind
+          }
+
+      - name: Run scenario against a real kind cluster
+        run: ./scripts/test-scenario.sh "${{ matrix.scenario }}"
+
+      - name: Show background.sh output on failure
+        if: failure()
+        run: |
+          echo "See the step output above for background.sh's stdout/stderr."
+          sudo journalctl -u kubelet --no-pager -n 100 2>/dev/null || true
