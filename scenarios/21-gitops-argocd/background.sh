@@ -9,7 +9,9 @@ mkdir -p /root/kcna-scratch
 # learner's timer starts, so none of the boot time counts against
 # the 50-minute target.
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# timeout so a stalled fetch fails loudly instead of hanging background.sh
+# forever with no error surfaced to Killercoda's Debug panel.
+timeout 60 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl -n argocd wait --for=condition=Available deployment/argocd-repo-server --timeout=300s
 kubectl -n argocd wait --for=condition=Available deployment/argocd-server --timeout=300s
 kubectl -n argocd rollout status statefulset/argocd-application-controller --timeout=300s

@@ -4,7 +4,9 @@ set -e
 kubectl wait --for=condition=Ready node --all --timeout=120s
 mkdir -p /root/kcna-scratch
 
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+# timeout so a stalled fetch fails loudly instead of hanging background.sh
+# forever with no error surfaced to Killercoda's Debug panel.
+timeout 60 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 # kubeadm sandbox clusters use self-signed kubelet certs -- metrics-server
 # needs this flag to scrape them at all.
 kubectl -n kube-system patch deployment metrics-server --type=json -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'

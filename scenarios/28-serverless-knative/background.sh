@@ -6,11 +6,13 @@ mkdir -p /root/kcna-scratch
 
 KN_VERSION="knative-v1.23.0"
 
-kubectl apply -f "https://github.com/knative/serving/releases/download/${KN_VERSION}/serving-crds.yaml"
+# timeout on every fetch so a stall fails loudly instead of hanging
+# background.sh forever with no error surfaced to Killercoda's Debug panel.
+timeout 60 kubectl apply -f "https://github.com/knative/serving/releases/download/${KN_VERSION}/serving-crds.yaml"
 kubectl wait --for=condition=Established crd --all --timeout=60s
-kubectl apply -f "https://github.com/knative/serving/releases/download/${KN_VERSION}/serving-core.yaml"
+timeout 60 kubectl apply -f "https://github.com/knative/serving/releases/download/${KN_VERSION}/serving-core.yaml"
 
-kubectl apply -f "https://github.com/knative-extensions/net-kourier/releases/download/${KN_VERSION}/kourier.yaml"
+timeout 60 kubectl apply -f "https://github.com/knative-extensions/net-kourier/releases/download/${KN_VERSION}/kourier.yaml"
 kubectl patch configmap/config-network -n knative-serving --type merge \
   -p '{"data":{"ingress-class":"kourier.ingress.networking.knative.dev"}}'
 

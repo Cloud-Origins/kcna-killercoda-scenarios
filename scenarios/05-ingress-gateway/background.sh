@@ -4,7 +4,9 @@ set -e
 kubectl wait --for=condition=Ready node --all --timeout=120s
 
 # Install the ingress controller -- boilerplate, not the tested concept.
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
+# Wrapped in `timeout` so a stalled fetch fails loudly instead of hanging
+# background.sh forever with no error surfaced to Killercoda's Debug panel.
+timeout 60 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
