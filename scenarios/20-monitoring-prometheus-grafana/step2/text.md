@@ -3,7 +3,7 @@
 Port-forward the server in the background:
 
 ```bash
-kubectl -n monitoring port-forward svc/prometheus-server 9090:80 > /root/kcna-scratch/portforward.log 2>&1 &
+kubectl -n monitoring port-forward svc/prometheus-server 9090:80 > /tmp/portforward.log 2>&1 &
 sleep 5
 ```
 
