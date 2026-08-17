@@ -39,7 +39,7 @@ Every scenario applies one or more of:
 | 21 | GitOps: ArgoCD Sync & Self-Heal | 6 | App Delivery (16%) (bonus) | 50m | `ckad/03-gitops-argocd` | done |
 | 22 | Intro to Containers: crictl & containerd | 1-2 | Architecture (12%) | 30m | gap-fill (self-authored) | done |
 | 23 | Orchestration Why: Manual vs Controller | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | done |
-| 24 | Rolling Updates | 5 | K8s Fundamentals (44%) | 35m | gap-fill (self-authored) | todo |
+| 24 | Rolling Updates | 5 | K8s Fundamentals (44%) | 35m | gap-fill (self-authored) | done |
 | 25 | Rollbacks | 5 | K8s Fundamentals (44%) | 30m | gap-fill (self-authored) | todo |
 | 26 | HPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
 | 27 | VPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
