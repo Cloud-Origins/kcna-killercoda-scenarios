@@ -17,4 +17,4 @@ sleep 5
 kubectl get pods -l app=controlled
 ```
 
-Three again -- a different name where `$POD` used to be, but three. The ReplicaSet's reconcile loop noticed the gap and closed it, unprompted. That loop is the entire value proposition of an orchestrator.
+Compare this pod list against step 1's -- same delete action, same starting count. Whatever difference you see (or don't) between "manual" and "controlled" is the ReplicaSet's reconcile loop either doing its job, or not. That loop is the entire value proposition of an orchestrator.

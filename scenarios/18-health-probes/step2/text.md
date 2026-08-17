@@ -21,4 +21,4 @@ kubectl get pod "$POD"
 kubectl get endpoints web-svc
 ```
 
-The pod should still show `Running` with `0` restarts -- liveness never fired -- but `READY` drops to `0/1` and it disappears from `web-svc`'s endpoints. That's the whole distinction in one broken file.
+Compare what you see against what you'd expect from a *liveness* failure versus a *readiness* failure -- did the pod restart? Is it still `Running`? Is it still in the Service's endpoint list? That comparison is the whole distinction, in one broken file.

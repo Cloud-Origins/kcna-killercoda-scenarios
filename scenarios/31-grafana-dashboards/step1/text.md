@@ -19,4 +19,4 @@ Log in with the admin credentials (`admin` / `kcna-admin-2026`) and confirm the 
 curl -s -u admin:kcna-admin-2026 http://localhost:3000/api/datasources | tee /root/kcna-scratch/datasources.json
 ```
 
-You should see one datasource, type `prometheus`, pointed at `prometheus-server.monitoring.svc.cluster.local`.
+Check what came back: how many datasources are listed, what `type` each one is, and what `url` it points at. That's what confirms (or doesn't) that the provisioning in `background.sh` actually wired Grafana to the right Prometheus.

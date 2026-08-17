@@ -4,15 +4,15 @@ Answer each question with a single letter (A/B/C/D). Write all five letters, one
 
 ```bash
 cat <<'EOF' > /root/kcna-scratch/quiz-1.txt
-B
-B
-C
-A
-B
+X
+X
+X
+X
+X
 EOF
 ```
 
-(That example is not the answer key -- work out your own answers first.)
+(Replace each `X` above with your own answer -- `X` isn't a valid option for any question, so this placeholder can't accidentally score.)
 
 **Q1.** Which component is responsible for storing all cluster state?
 A) kubelet B) etcd C) kube-proxy D) containerd

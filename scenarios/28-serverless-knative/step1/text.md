@@ -34,4 +34,4 @@ kubectl run curler --image=busybox:1.36 --restart=Never --rm -i --command -- \
   wget -qO- --header "Host: $HOST" "http://$KOURIER_IP"
 ```
 
-You should see `Hello World: KCNA!`.
+A real response should come back, not a connection error -- and it should reflect the `TARGET` value you set in the manifest above, not some generic default.
