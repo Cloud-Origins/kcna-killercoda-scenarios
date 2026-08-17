@@ -16,6 +16,8 @@ helm install prometheus prometheus-community/prometheus \
   --namespace monitoring --create-namespace \
   --set alertmanager.enabled=false \
   --set prometheus-pushgateway.enabled=false \
+  --set kube-state-metrics.enabled=false \
+  --set prometheus-node-exporter.enabled=false \
   --set server.persistentVolume.enabled=false
 
 # Grafana provisioned with its Prometheus datasource baked in from the
