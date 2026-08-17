@@ -1,0 +1,28 @@
+{
+  "title": "Persistent Storage: PV/PVC",
+  "description": "Bind a PVC to a pre-staged PV and prove data survives pod deletion -- KCNA Container Orchestration domain, Storage",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Bind a PVC and write to it",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Prove persistence",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "background": "background.sh"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
