@@ -1,0 +1,14 @@
+{
+  "title": "GitOps: ArgoCD Sync & Self-Heal",
+  "description": "Declare an ArgoCD Application against a real public Git repo, sync it, then prove self-heal by drifting the cluster and watching ArgoCD revert it. KCNA Application Delivery domain, GitOps (bonus)",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Declare and sync an Application", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Drift the cluster and watch ArgoCD self-heal", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
