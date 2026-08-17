@@ -1,0 +1,14 @@
+{
+  "title": "ConfigMaps & Secrets",
+  "description": "Externalize config with a ConfigMap and a Secret, then consume both as Pod env vars. KCNA K8s Fundamentals domain, ConfigMaps and Secrets",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a ConfigMap and a Secret", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Consume both as env vars in a Pod", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
