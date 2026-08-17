@@ -1,0 +1,14 @@
+{
+  "title": "kubectl Tooling & Contexts",
+  "description": "Work faster with kubectl: default-namespace contexts, jsonpath output, and kubectl explain. KCNA K8s Fundamentals domain, kubectl tooling",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Set a default-namespace context and extract with jsonpath", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Inspect a resource schema with kubectl explain", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
