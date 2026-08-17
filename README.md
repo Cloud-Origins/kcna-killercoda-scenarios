@@ -37,6 +37,21 @@ Every scenario applies one or more of:
 | 19 | Helm Packaging | 6 | App Delivery (16%) | 55m | `core/19-helm` | done |
 | 20 | Monitoring: Prometheus & Grafana | 7 | Architecture/Observability (12%) | 55m | `core/18-monitoring` | done |
 | 21 | GitOps: ArgoCD Sync & Self-Heal | 6 | App Delivery (16%) (bonus) | 50m | `ckad/03-gitops-argocd` | done |
+| 22 | Intro to Containers: crictl & containerd | 1-2 | Architecture (12%) | 30m | gap-fill (self-authored) | done |
+| 23 | Orchestration Why: Manual vs Controller | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | todo |
+| 24 | Rolling Updates | 5 | K8s Fundamentals (44%) | 35m | gap-fill (self-authored) | todo |
+| 25 | Rollbacks | 5 | K8s Fundamentals (44%) | 30m | gap-fill (self-authored) | todo |
+| 26 | HPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
+| 27 | VPA Autoscaling | 1-2 | Architecture (12%) | 45m | gap-fill (self-authored) | todo |
+| 28 | Serverless: Knative Scale-to-Zero | 1-2 | Architecture (12%) | 55m | gap-fill (self-authored) | todo |
+| 29 | CNCF Landscape Quiz | 1-2 | Architecture (12%) | 25m | gap-fill (self-authored) | todo |
+| 30 | Logging Basics | 7 | Observability (12%) | 25m | gap-fill (self-authored) | todo |
+| 31 | Grafana Dashboards | 7 | Observability (12%) | 45m | gap-fill (self-authored) | todo |
+| 32 | OpenTelemetry Traces | 7 | Observability (12%) | 50m | gap-fill (self-authored) | todo |
+| 33 | Tekton CI/CD | 6 | App Delivery (16%) | 50m | gap-fill (self-authored) | todo |
+| 34 | Final Mock Exam | 1-7 | All domains | 55m | gap-fill (self-authored) | todo |
+
+Levels 22-34 fill gaps identified when the roadmap was compared against a fuller 30-topic domain breakdown -- self-authored (no `africa-k8s-labs` source lab) but built to the same compression and verification standard as 1-21.
 
 ## Structure
 
