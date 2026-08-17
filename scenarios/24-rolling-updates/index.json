@@ -1,0 +1,14 @@
+{
+  "title": "Rolling Updates",
+  "description": "Roll a Deployment from nginx:1.26 to nginx:1.27 with maxUnavailable=0 while a live traffic monitor proves zero dropped requests. KCNA K8s Fundamentals domain, rolling updates",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a Deployment tuned for zero-downtime rollout", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Roll the image while traffic keeps flowing", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
