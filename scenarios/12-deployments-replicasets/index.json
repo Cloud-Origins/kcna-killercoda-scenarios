@@ -1,0 +1,14 @@
+{
+  "title": "Deployments & ReplicaSets",
+  "description": "Create a 3-replica Deployment, prove self-healing by deleting a pod, then scale up. KCNA K8s Fundamentals domain, Deployments and ReplicaSets",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Create a 3-replica Deployment", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Prove self-healing, then scale", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
