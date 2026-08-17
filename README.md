@@ -35,7 +35,7 @@ Every scenario applies one or more of:
 | 17 | Scheduling: Affinity & Taints | 5 | K8s Fundamentals (44%) | 55m | `core/14-scheduling` | done |
 | 18 | Health Probes | 5 | K8s Fundamentals (44%) | 45m | `core/15-health-probes` | done |
 | 19 | Helm Packaging | 6 | App Delivery (16%) | 55m | `core/19-helm` | done |
-| 20 | Monitoring: Prometheus & Grafana | 7 | Architecture/Observability (12%) | 55m | `core/18-monitoring` | todo |
+| 20 | Monitoring: Prometheus & Grafana | 7 | Architecture/Observability (12%) | 55m | `core/18-monitoring` | done |
 | 21 | GitOps: ArgoCD Sync & Self-Heal | 6 | App Delivery (16%) (bonus) | 50m | `ckad/03-gitops-argocd` | todo |
 
 ## Structure
