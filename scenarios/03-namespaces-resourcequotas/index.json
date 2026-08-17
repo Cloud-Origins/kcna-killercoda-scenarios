@@ -1,0 +1,28 @@
+{
+  "title": "Namespaces & Resource Quotas",
+  "description": "Diagnose a quota-blocked pod and fix it -- KCNA Container Orchestration domain",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Diagnose the rejection",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Fix it",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "background": "background.sh"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
