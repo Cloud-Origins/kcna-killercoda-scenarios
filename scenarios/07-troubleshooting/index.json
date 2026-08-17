@@ -1,0 +1,28 @@
+{
+  "title": "Troubleshooting Drill",
+  "description": "Two independent breakages in one app, no building -- pure diagnose-and-fix. KCNA Container Orchestration domain, Troubleshooting",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Fix the pod that won't start",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Fix the service with no endpoints",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "background": "background.sh"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
