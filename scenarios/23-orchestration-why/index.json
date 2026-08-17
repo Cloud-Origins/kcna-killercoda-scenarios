@@ -1,0 +1,14 @@
+{
+  "title": "Orchestration Why: Manual vs Controller",
+  "description": "Kill a manually-created Pod and watch it stay dead, then do the same to a controller-managed Pod and watch it come back. KCNA Architecture domain, why orchestration exists",
+  "details": {
+    "intro": { "text": "intro.md" },
+    "steps": [
+      { "title": "Manually scale, then kill one -- and it stays dead", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Let a controller do it, then kill one -- and it comes back", "text": "step2/text.md", "verify": "step2/verify.sh" }
+    ],
+    "finish": { "text": "finish.md" },
+    "background": "background.sh"
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-2nodes" }
+}
