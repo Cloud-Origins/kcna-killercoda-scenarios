@@ -19,7 +19,7 @@ jobs:
     name: Static validation (schema, files, shellcheck)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Ensure shellcheck is available
         run: command -v shellcheck || sudo apt-get update && sudo apt-get install -y shellcheck
       - name: Run static validator
@@ -32,7 +32,7 @@ jobs:
     outputs:
       matrix: ${{ steps.list.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: list
         run: |
           echo "matrix=$(ls scenarios | jq -R -s -c 'split("\n")[:-1]')" >> "$GITHUB_OUTPUT"
@@ -46,7 +46,7 @@ jobs:
       matrix:
         scenario: ${{ fromJson(needs.discover.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install kind and kubectl
         run: |
