@@ -154,21 +154,20 @@ All 34 scenarios are complete, verified, and deployable. They are organized belo
 
 > **Source** `gap-fill` denotes a self-authored scenario with no corresponding lab in `africa-k8s-labs`, added to close a domain coverage gap. All other scenarios cite their originating lab path in that repository.
 
-## Contributing / Extending
+## Quality Gates
 
-To add a new scenario, follow the existing structure exactly:
+Every scenario is validated two ways before merge, both automated in CI:
 
-```bash
-mkdir -p scenarios/NN-slug/{step1,step2}
-```
+| Gate | What it checks | Where |
+|---|---|---|
+| Static | `index.json` schema, every referenced file exists, `.sh` files executable and pass `bash -n` + `shellcheck`, the foreground/background wait contract | `scripts/validate-static.py` |
+| Dynamic | `background.sh` actually succeeds against a real 2-node kind cluster pinned to Killercoda's own K8s version | `scripts/test-scenario.sh` |
 
-1. Write `index.json`, `intro.md`, `background.sh`, and `finish.md`.
-2. For each step, write `stepN/text.md` (learner-facing instructions) and `stepN/verify.sh` (an executable script that exits `0` on success, non-zero with a clear message on failure).
-3. `chmod +x background.sh step*/verify.sh`.
-4. Validate the manifest: `python3 -m json.tool scenarios/NN-slug/index.json`.
-5. Add a row to the appropriate domain table above.
+See [`.github/workflows/validate-scenarios.yml`](.github/workflows/validate-scenarios.yml) -- runs both on every push and PR touching `scenarios/**`.
 
-Verification scripts must check live, observable cluster or API state -- never a static string the learner is told to echo without the system actually producing it.
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or modify a scenario, the diagnostic-vs-boilerplate convention (Solution/Tip dropdowns, not spoilers in the main text), and how to run the quality gates locally before opening a PR. This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Acknowledgments
 
