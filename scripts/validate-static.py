@@ -11,6 +11,12 @@ actually work. Checks:
     before it was caught and fixed -- see git history)
   - every .sh file passes `bash -n` (syntax) and `shellcheck -S error`
   - every relative asset path referenced from text.md/background.sh resolves
+  - every non-quiz step has a well-formed Solution dropdown: matched
+    <details>/</details>, exactly one <summary>Tip|Solution</summary> per
+    <details>, balanced code fences, and no {{exec}} tag on a multi-line
+    code block (regression guard for the Solution/Tip rollout -- this does
+    NOT verify the *content* inside a Solution block is factually correct,
+    only that the markup is well-formed and every non-quiz step has one)
 
 Exits non-zero (and prints every failure, not just the first) if any
 scenario fails any check.
@@ -24,6 +30,11 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SCENARIOS_DIR = REPO / "scenarios"
 MARKER = "kcna-background-done"
+
+# Multiple-choice self-assessment scenarios -- a "Solution: B" dropdown
+# would hand over the answer key, so the Solution-dropdown convention
+# deliberately does not apply here.
+QUIZ_SCENARIOS = {"11-fundamentals-quiz", "29-cncf-landscape"}
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -58,6 +69,38 @@ def check_shell_syntax(scenario: str, path: Path) -> None:
 def check_executable(scenario: str, path: Path) -> None:
     if not path.stat().st_mode & 0o111:
         fail(scenario, f"{path.name} is not executable (chmod +x)")
+
+
+def check_solution_dropdowns(scenario: str, scenario_dir: Path) -> None:
+    quiz = scenario in QUIZ_SCENARIOS
+    for text_md in sorted(scenario_dir.glob("step*/text.md")):
+        rel = text_md.relative_to(scenario_dir)
+        content = text_md.read_text()
+
+        open_count = len(re.findall(r"<details>", content))
+        close_count = len(re.findall(r"</details>", content))
+        if open_count != close_count:
+            fail(scenario, f"{rel}: {open_count} <details> vs {close_count} </details> -- unbalanced")
+
+        summary_count = len(re.findall(r"<summary>(?:Tip|Solution)</summary>", content))
+        if summary_count != open_count:
+            fail(scenario, f"{rel}: {open_count} <details> block(s) but {summary_count} recognized "
+                            f"<summary>Tip|Solution</summary> tag(s) -- every <details> needs exactly one")
+
+        fence_count = content.count("```")
+        if fence_count % 2 != 0:
+            fail(scenario, f"{rel}: odd number of ``` code fences ({fence_count}) -- an unclosed block")
+
+        for block in re.findall(r"```[a-z]*\n([^`]*?)\n```\{\{exec\}\}", content):
+            if "\n" in block.strip():
+                fail(scenario, f"{rel}: a ```{{{{exec}}}}-tagged code block spans multiple lines -- "
+                                f"only single-line, side-effect-free commands should be click-to-run")
+
+        if not quiz and summary_count > 0 and "<summary>Solution</summary>" not in content:
+            fail(scenario, f"{rel}: has a Tip dropdown but no Solution dropdown")
+
+        if not quiz and "<summary>Solution</summary>" not in content:
+            fail(scenario, f"{rel}: missing a Solution dropdown (see CONTRIBUTING.md)")
 
 
 def check_asset_references(scenario: str, scenario_dir: Path) -> None:
@@ -138,6 +181,41 @@ def validate_scenario(scenario_dir: Path) -> None:
             fail(name, f"foreground.sh does not poll for /tmp/{MARKER} -- won't block the learner's terminal")
 
     check_asset_references(name, scenario_dir)
+    check_solution_dropdowns(name, scenario_dir)
+
+
+def check_structure_json(scenario_dirs: list[Path]) -> None:
+    """scenarios/structure.json controls Killercoda's display order for the
+    course tile -- Killercoda otherwise sorts alphabetically by title,
+    ignoring the NN- prefix entirely (confirmed live). If a scenario
+    directory exists but isn't listed here, it silently vanishes from the
+    course listing instead of failing loudly, so this is a real guardrail,
+    not cosmetic."""
+    structure_path = SCENARIOS_DIR / "structure.json"
+    if not structure_path.exists():
+        warn("structure.json", "missing -- Killercoda will sort the course listing alphabetically by "
+                                "title instead of the intended domain/level order")
+        return
+
+    try:
+        data = json.loads(structure_path.read_text())
+    except json.JSONDecodeError as e:
+        fail("structure.json", f"not valid JSON: {e}")
+        return
+
+    listed = [item.get("path") for item in data.get("items", [])]
+    on_disk = {d.name for d in scenario_dirs}
+
+    for path in listed:
+        if path not in on_disk:
+            fail("structure.json", f"lists '{path}' but no such scenario directory exists")
+
+    for name in sorted(on_disk - set(listed)):
+        fail("structure.json", f"scenario directory '{name}' exists but is not listed -- "
+                                f"it will be invisible in Killercoda's course listing")
+
+    if len(listed) != len(set(listed)):
+        fail("structure.json", "contains duplicate paths")
 
 
 def main() -> int:
@@ -145,6 +223,8 @@ def main() -> int:
     if not scenario_dirs:
         print(f"No scenario directories found under {SCENARIOS_DIR}")
         return 1
+
+    check_structure_json(scenario_dirs)
 
     for d in scenario_dirs:
         validate_scenario(d)
