@@ -12,3 +12,11 @@ curl -s -u admin:kcna-admin-2026 http://localhost:3000/api/datasources | tee /ro
 ```
 
 Look at the last command's output: how many datasources, what `type`, what `url`. That's your confirmation the Helm-provisioned config actually landed.
+
+<br>
+
+<details><summary>Solution</summary>
+
+You should see exactly one datasource: `"type":"prometheus"`, `"url":"http://prometheus-server.monitoring.svc.cluster.local"`. If `curl` returned nothing at all, the port-forward likely didn't establish -- check `/tmp/portforward.log`.
+
+</details>
