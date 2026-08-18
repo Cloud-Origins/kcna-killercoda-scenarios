@@ -13,3 +13,16 @@ Confirm it bound to `data-pv` (`STATUS` should be `Bound`), then create the writ
 kubectl apply -f assets/writer-pod.yaml
 kubectl wait --for=condition=Ready pod/writer-pod --timeout=60s
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+```bash
+kubectl get pvc data-pvc
+kubectl exec writer-pod -- cat /data/proof.txt
+```
+
+Expect `data-pvc` `STATUS` to be `Bound`, and `/data/proof.txt` inside `writer-pod` to contain `kcna-persist-test`.
+
+</details>

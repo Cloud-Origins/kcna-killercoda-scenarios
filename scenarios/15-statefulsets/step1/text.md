@@ -53,3 +53,15 @@ Save as `/root/kcna-scratch/statefulset.yaml`, apply it, then confirm ordered na
 ```bash
 kubectl get sts,pods,pvc
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get sts,pods,pvc` should show:
+
+- Service `data`: `CLUSTER-IP` is `None`
+- Pods `data-0` and `data-1`, both `Running`
+- PVCs `www-data-0` and `www-data-1`, both `Bound`
+
+</details>

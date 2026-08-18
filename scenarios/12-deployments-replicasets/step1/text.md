@@ -16,3 +16,15 @@ Confirm all three layers exist and are healthy:
 ```bash
 kubectl get deploy,rs,pods -l app=web
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get deploy,rs,pods -l app=web` should show:
+
+- Deployment `web`: `3/3` ready, image `nginx:1.27`, container port `80`
+- ReplicaSet: `3` desired, `3` current, `3` ready
+- 3 Pods, all `Running`
+
+</details>

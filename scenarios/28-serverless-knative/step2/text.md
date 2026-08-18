@@ -11,3 +11,11 @@ Within roughly 20-30 seconds of no traffic, the last pod terminates. `kubectl ge
 ```bash
 kubectl get pods -l serving.knative.dev/service=hello
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+After the idle window elapses, `kubectl get pods -l serving.knative.dev/service=hello` should return no rows at all (not a pod with `0` in some column -- literally zero matching Pods, and none stuck `Terminating`). If pods are still listed, the idle window hasn't elapsed yet -- wait a bit longer and re-check.
+
+</details>

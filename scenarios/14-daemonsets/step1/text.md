@@ -33,3 +33,11 @@ kubectl get pods -l app=node-logger -o wide
 ```
 
 `DESIRED` should equal `CURRENT` and `READY`. If it's fewer than your total node count, a node is tainted against scheduling -- that's expected, not a bug. Keep going to step 2.
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get ds node-logger` should show `DESIRED`, `CURRENT`, and `READY` all equal to each other (at least `1`). They only need to equal your *total* node count once the control-plane taint is tolerated in step 2 -- until then, a tainted node not covered is expected.
+
+</details>

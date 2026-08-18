@@ -27,3 +27,16 @@ kubectl wait --for=condition=Complete job/counter --timeout=60s
 kubectl get jobs
 kubectl logs job/counter
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get jobs` should show `counter` with `COMPLETIONS` `1/1`. `kubectl logs job/counter` should print:
+
+```bash
+processing
+done
+```
+
+</details>

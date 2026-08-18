@@ -35,3 +35,17 @@ kubectl run curler --image=busybox:1.36 --restart=Never --rm -i --command -- \
 ```
 
 A real response should come back, not a connection error -- and it should reflect the `TARGET` value you set in the manifest above, not some generic default.
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get ksvc hello -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}'` should read `True`. The `wget` call through Kourier should return exactly:
+
+```
+Hello World: KCNA!
+```
+
+If it fails, check that `$HOST` resolved to something like `hello.default.<domain>` and `$KOURIER_IP` is a non-empty ClusterIP -- an empty value in either means the earlier `jsonpath` extraction ran before the resource was ready.
+
+</details>

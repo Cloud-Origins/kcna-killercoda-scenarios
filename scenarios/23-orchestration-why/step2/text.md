@@ -18,3 +18,15 @@ kubectl get pods -l app=controlled
 ```
 
 Compare this pod list against step 1's -- same delete action, same starting count. Whatever difference you see (or don't) between "manual" and "controlled" is the ReplicaSet's reconcile loop either doing its job, or not. That loop is the entire value proposition of an orchestrator.
+
+<br>
+
+<details><summary>Solution</summary>
+
+Unlike step 1 (stuck at 2 surviving Pods), the `controlled` Deployment should show `3/3` ready replicas again -- the ReplicaSet noticed one Pod missing and created a replacement automatically:
+
+```bash
+kubectl get deploy controlled -o jsonpath='{.status.readyReplicas}{"\n"}'
+```{{exec}}
+
+</details>

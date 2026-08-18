@@ -31,3 +31,16 @@ Save that to `/root/kcna-scratch/configured.yaml`, apply it, then prove the valu
 ```bash
 kubectl exec configured -- printenv APP_MODE API_KEY
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl exec configured -- printenv APP_MODE API_KEY` should print:
+
+```bash
+production
+s3cr3t
+```
+
+</details>

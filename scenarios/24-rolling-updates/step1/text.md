@@ -53,3 +53,15 @@ Save as `/root/kcna-scratch/web.yaml`, apply, and confirm all 4 are ready:
 ```bash
 kubectl rollout status deployment/web --timeout=90s
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+Deployment `web` should have `4/4` ready replicas on image `nginx:1.26`, with `spec.strategy.rollingUpdate.maxUnavailable` set to `0`, and Service `web-svc` should show `4` ready endpoints -- confirming the pods are not just running but actually reachable through the Service:
+
+```bash
+kubectl get deploy web -o jsonpath='{.status.readyReplicas}/{.spec.replicas} ready, image={.spec.template.spec.containers[0].image}, maxUnavailable={.spec.strategy.rollingUpdate.maxUnavailable}{"\n"}'
+```{{exec}}
+
+</details>

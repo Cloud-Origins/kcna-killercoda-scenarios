@@ -29,3 +29,15 @@ Give the monitor a few more seconds to finish its 200 requests, then check the d
 sleep 15
 kubectl exec traffic-monitor -- cat /tmp/fail-count.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`/tmp/fail-count.txt` inside `traffic-monitor` should read `0` -- zero failed requests across the entire rollout to `nginx:1.27`, with the Deployment back at `4/4` ready. That's the readiness probe, `maxUnavailable: 0`, and `preStop` hook from step 1 doing their job together:
+
+```bash
+kubectl exec traffic-monitor -- cat /tmp/fail-count.txt
+```{{exec}}
+
+</details>

@@ -40,3 +40,11 @@ Confirm it actually scheduled onto the tainted node, unlike `blocked-test`:
 ```bash
 kubectl get pod pinned -o wide
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get pod pinned -o wide` should show it `Running`, with `NODE` matching the value in `/root/kcna-scratch/tainted-node.txt` -- unlike `blocked-test`, the `dedicated=labs:NoSchedule` toleration lets it land on the tainted node.
+
+</details>

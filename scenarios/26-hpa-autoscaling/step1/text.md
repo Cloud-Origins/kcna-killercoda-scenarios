@@ -52,3 +52,23 @@ Save as `/root/kcna-scratch/hpa.yaml`, apply, and wait for metrics-server to act
 ```bash
 kubectl get hpa cpu-app -w
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+Once metrics-server has scraped at least once, `kubectl get hpa cpu-app` should show:
+
+- `TARGETS` column with a real percentage like `1%/50%` (not `<unknown>/50%`)
+- `MAXPODS` = `4`
+- `REPLICAS` = `1` (still idle, hasn't scaled yet)
+
+If you want to confirm the raw fields instead of eyeballing the table:
+
+```bash
+kubectl get hpa cpu-app -o jsonpath='{.spec.metrics[0].resource.target.averageUtilization}{"\n"}{.spec.maxReplicas}{"\n"}{.status.currentMetrics[0].resource.current.averageUtilization}{"\n"}'
+```{{exec}}
+
+Expect `50`, `4`, and a numeric CPU percentage on the three lines. If the third line is empty, metrics-server hasn't scraped yet -- wait and re-run.
+
+</details>

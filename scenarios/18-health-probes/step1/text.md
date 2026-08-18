@@ -55,3 +55,11 @@ Save as `/root/kcna-scratch/probes.yaml`, apply, and confirm:
 kubectl get deploy web
 kubectl get endpoints web-svc
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get deploy web` should show `2/2` ready replicas. `kubectl get endpoints web-svc` should list 2 IP addresses -- both readiness probes passing, so both Pods are in the Service.
+
+</details>

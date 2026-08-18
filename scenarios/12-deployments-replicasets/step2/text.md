@@ -28,3 +28,11 @@ Now scale up:
 kubectl scale deployment web --replicas=5
 kubectl wait --for=condition=Ready pods -l app=web --timeout=60s
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`pods-before.txt` and `pods-after.txt` should each list exactly 3 Pod names, sorted -- but not the same 3 names: the deleted Pod's name is gone, replaced by a new one the ReplicaSet created. After scaling, `kubectl get deploy web` should show `5/5` ready replicas.
+
+</details>

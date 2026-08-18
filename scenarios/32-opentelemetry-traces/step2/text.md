@@ -16,3 +16,16 @@ grep -o '"serviceName":"[^"]*"' /root/kcna-scratch/queried-trace.json
 ```
 
 That's the entire tracing pipeline in one request: ingest over OTLP, store, index by trace ID, query back out.
+
+<br>
+
+<details><summary>Solution</summary>
+
+`/root/kcna-scratch/queried-trace.json` should contain:
+
+- `"operationName":"process-request"`
+- `"serviceName":"kcna-demo-service"`
+
+Both `grep -o` commands above should print a matching line. If the file is empty or the query returned no data, double check `$TRACE_ID` matches the one saved in step 1's `answer-trace-id.txt`.
+
+</details>

@@ -27,3 +27,15 @@ Confirm it deployed with the values you set:
 helm status webapp
 kubectl get deploy -l app.kubernetes.io/instance=webapp
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`helm status webapp` should report `STATUS: deployed`. The Deployment matched by `app.kubernetes.io/instance=webapp` should show `2/2` ready replicas, with a container image starting with `nginx:1.27` -- confirming both `sed` edits (`replicaCount: 2`, `tag: "1.27"`) actually landed:
+
+```bash
+kubectl get deploy -l app.kubernetes.io/instance=webapp -o jsonpath='{.items[0].status.readyReplicas}{"\n"}{.items[0].spec.template.spec.containers[0].image}{"\n"}'
+```{{exec}}
+
+</details>

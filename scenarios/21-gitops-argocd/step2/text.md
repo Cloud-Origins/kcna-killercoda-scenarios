@@ -20,3 +20,15 @@ sleep 15
 kubectl -n guestbook get deploy guestbook-ui
 kubectl -n argocd get application guestbook -o jsonpath='{.status.sync.status}{"\n"}'
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+There's no fixed replica count to check against here -- it depends on whatever Git happened to declare when you captured it in `/root/kcna-scratch/original-replicas.txt`. The check is a comparison: `spec.replicas` on `guestbook-ui` should match that saved value again (not the drifted `5`), and the Application's sync status should be back to `Synced`:
+
+```bash
+diff /root/kcna-scratch/original-replicas.txt <(kubectl -n guestbook get deploy guestbook-ui -o jsonpath='{.spec.replicas}')
+```{{exec}}
+
+</details>

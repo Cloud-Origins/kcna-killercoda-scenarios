@@ -23,3 +23,15 @@ Nothing replaces it. Nothing is watching. That's the whole problem orchestration
 ```bash
 kubectl get pods -l 'run in (manual-1,manual-2,manual-3)' --no-headers | wc -l > /root/kcna-scratch/answer-manual-count.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`manual-2` should be gone for good -- exactly `2` Pods remaining (`manual-1`, `manual-3`), and `/root/kcna-scratch/answer-manual-count.txt` should contain `2`:
+
+```bash
+kubectl get pods -l 'run in (manual-1,manual-2,manual-3)'
+```{{exec}}
+
+</details>

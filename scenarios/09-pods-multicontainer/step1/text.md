@@ -17,3 +17,15 @@ Confirm it's running:
 ```bash
 kubectl get pod web -o wide
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+Pod `web` should show image `nginx:1.27`, label `app=web`, `containerPort` `80`, and phase `Running`:
+
+```bash
+kubectl get pod web -o jsonpath='{.spec.containers[0].image} {.metadata.labels.app} {.spec.containers[0].ports[0].containerPort} {.status.phase}{"\n"}'
+```{{exec}}
+
+</details>

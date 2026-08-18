@@ -36,3 +36,11 @@ Once you see a Job spawned from `hello` (name like `hello-28...`), check its log
 JOB=$(kubectl get jobs --no-headers -o custom-columns=NAME:.metadata.name | grep ^hello- | head -1)
 kubectl logs job/$JOB
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get cronjob hello` should show schedule `*/1 * * * *`. Once a minute ticks over, `kubectl get jobs` should show a Job named `hello-<timestamp>`, and its logs should contain the date output followed by `hello`.
+
+</details>

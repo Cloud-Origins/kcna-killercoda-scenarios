@@ -19,3 +19,11 @@ A Deployment would have replaced it with a new, differently-named pod. Confirm t
 kubectl get pod data-0
 kubectl exec data-0 -- cat /usr/share/nginx/html/proof.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get pod data-0` should show the pod `Running` under the exact same name `data-0` -- a Deployment would have given you a new random suffix instead. `kubectl exec data-0 -- cat /usr/share/nginx/html/proof.txt` should print `kcna-sts-proof`: the same PVC (`www-data-0`) was reattached, so the marker file survived.
+
+</details>

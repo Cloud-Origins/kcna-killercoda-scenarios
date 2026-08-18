@@ -17,3 +17,19 @@ Add under `spec.rules[0].http.paths`:
                 port:
                   number: 80
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`apps-ingress` should have both paths on `spec.rules[0].http.paths`: `/app1` -> `app1-svc`, `/app2` -> `app2-svc`. Confirm by curling the new path through the same ingress controller Service as before:
+
+```bash
+NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+NODE_PORT=$(kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[?(@.name=="http")].nodePort}')
+curl -s "http://$NODE_IP:$NODE_PORT/app2"
+```
+
+Expect `server address` in the response.
+
+</details>

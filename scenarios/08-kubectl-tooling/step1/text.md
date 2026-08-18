@@ -17,3 +17,15 @@ Now, without typing `-n dev` (it's the default now), pull just the pod's name ou
 ```bash
 kubectl get pods -o jsonpath='{.items[0].metadata.name}' > /root/kcna-scratch/answer-podname.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+The context's default namespace should read `dev`, and `answer-podname.txt` should hold whatever pod name `kubectl get pods -o jsonpath='{.items[0].metadata.name}'` prints while that default is set:
+
+```bash
+cat /root/kcna-scratch/answer-podname.txt
+```{{exec}}
+
+</details>

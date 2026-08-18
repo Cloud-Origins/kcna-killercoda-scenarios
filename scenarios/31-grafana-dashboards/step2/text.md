@@ -33,3 +33,15 @@ The dashboard now exists, but existing isn't the same as working. Find your data
 DS_ID=$(grep -o '"id":[0-9]*' /root/kcna-scratch/datasources.json | head -1 | grep -o '[0-9]*')
 curl -s -u admin:kcna-admin-2026 "http://localhost:3000/api/datasources/proxy/${DS_ID}/api/v1/query?query=up" | tee /root/kcna-scratch/panel-data.json
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+Both `/root/kcna-scratch/dashboard-result.json` and `/root/kcna-scratch/panel-data.json` should contain `"status":"success"`, and `panel-data.json` should contain a result with value `"1"` -- a real, currently-up scrape target, not a static number someone typed in:
+
+```bash
+grep -o '"status":"[a-z]*"' /root/kcna-scratch/dashboard-result.json /root/kcna-scratch/panel-data.json
+```{{exec}}
+
+</details>

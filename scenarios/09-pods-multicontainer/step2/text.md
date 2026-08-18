@@ -33,3 +33,15 @@ Save that as `/root/kcna-scratch/sidecar-demo.yaml` and apply it. Prove the volu
 kubectl exec sidecar-demo -c app -- sh -c "echo hello-from-app > /var/log/shared/proof.txt"
 kubectl exec sidecar-demo -c logger -- cat /var/log/shared/proof.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`sidecar-demo` should be `Running` with exactly two containers, `app` then `logger` (in that order), and `logger` should be able to `cat` back whatever `app` wrote to `/var/log/shared/proof.txt` -- proof the `emptyDir` volume is shared, not container-local.
+
+```bash
+kubectl get pod sidecar-demo -o jsonpath='{.status.phase} {.spec.containers[*].name}{"\n"}'
+```{{exec}}
+
+</details>

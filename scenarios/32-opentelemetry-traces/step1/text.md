@@ -44,3 +44,11 @@ cat /root/kcna-scratch/trace-payload.json | kubectl run trace-sender --image=cur
 ```
 
 A `200` means Jaeger accepted it.
+
+<br>
+
+<details><summary>Solution</summary>
+
+`/root/kcna-scratch/answer-trace-id.txt` should contain a 32-character hex string (the trace ID), and `/root/kcna-scratch/trace-payload.json` should be valid JSON containing that same trace ID -- `grep "$TRACE_ID" /root/kcna-scratch/trace-payload.json` should find it. The `curl` call should print `200`. If the trace ID lengths don't match (32 hex chars for trace, 16 for span), regenerate with `openssl rand -hex 16` / `openssl rand -hex 8` respectively.
+
+</details>

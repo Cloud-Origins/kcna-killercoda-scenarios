@@ -47,3 +47,19 @@ Save as `/root/kcna-scratch/vpa.yaml`, apply, and watch the recommender build a 
 ```bash
 kubectl describe vpa sized-app
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl describe vpa sized-app` should show `Update Policy: Update Mode: Auto` and, once the recommender has observed the busy loop, a `Status.Recommendation` section with `Target.cpu` well above the `10m` request (VPA rounds up from real usage, so expect something in the tens-to-hundreds of millicores range, not exactly `10m`).
+
+To check the raw fields:
+
+```bash
+kubectl get vpa sized-app -o jsonpath='{.spec.updatePolicy.updateMode}{"\n"}{.status.recommendation.containerRecommendations[0].target.cpu}{"\n"}'
+```{{exec}}
+
+Expect `Auto` on the first line and a non-empty CPU value on the second. An empty second line means the recommender hasn't built a picture yet -- wait and re-run.
+
+</details>

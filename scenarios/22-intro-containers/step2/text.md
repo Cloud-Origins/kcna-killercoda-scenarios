@@ -17,3 +17,15 @@ Prove it actually landed in the real container -- read it back with `kubectl exe
 ```bash
 kubectl exec runtime-demo -- cat /tmp/proof.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl exec runtime-demo -- cat /tmp/proof.txt` should print exactly `crictl-was-here` -- proof that `crictl exec` (talking to the runtime) and `kubectl exec` (talking through the API server and kubelet) land in the same container:
+
+```bash
+kubectl exec runtime-demo -- cat /tmp/proof.txt
+```{{exec}}
+
+</details>

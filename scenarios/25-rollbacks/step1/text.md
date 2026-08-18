@@ -19,3 +19,15 @@ The old `nginx:1.26` pods are still there and still serving -- the rolling updat
 ```bash
 kubectl rollout status deployment/web --timeout=5s || echo "confirmed: not progressing" > /root/kcna-scratch/answer-stalled.txt
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+At least one `web` Pod should be stuck with an `ImagePull`/`ErrImage` reason on the bad tag, while at least one `nginx:1.26` Pod should still show `Ready`:
+
+```bash
+kubectl get pods -l app=web -o jsonpath='{range .items[*]}{.spec.containers[0].image}{" "}{.status.containerStatuses[0].ready}{" "}{.status.containerStatuses[0].state.waiting.reason}{"\n"}{end}'
+```{{exec}}
+
+</details>

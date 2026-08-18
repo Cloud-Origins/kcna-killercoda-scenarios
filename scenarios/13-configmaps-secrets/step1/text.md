@@ -20,3 +20,12 @@ kubectl get secret app-secret -o yaml
 ```
 
 Notice the Secret's value is base64-encoded, not encrypted -- that's an encoding, not a security boundary. Access control (RBAC) is what actually protects it.
+
+<br>
+
+<details><summary>Solution</summary>
+
+- ConfigMap `app-config`: `data.APP_MODE` is `production`
+- Secret `app-secret`: `type` is `Opaque`, `data.API_KEY` is the base64 string `czNjcjN0` (which decodes to `s3cr3t`)
+
+</details>

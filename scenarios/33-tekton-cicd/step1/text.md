@@ -70,3 +70,17 @@ Save as `/root/kcna-scratch/pipeline.yaml`, apply, and watch it run:
 ```bash
 kubectl get pipelinerun ci-run-1 -w
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get pipelinerun ci-run-1` should eventually show `SUCCEEDED: True`. Confirm via the raw condition:
+
+```bash
+kubectl get pipelinerun ci-run-1 -o jsonpath='{.status.conditions[?(@.type=="Succeeded")].status}{"\n"}'
+```{{exec}}
+
+Expect `True`. If it's still empty, the run hasn't finished yet -- give it a few more seconds.
+
+</details>

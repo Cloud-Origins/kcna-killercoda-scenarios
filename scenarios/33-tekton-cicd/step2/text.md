@@ -56,3 +56,21 @@ Save as `/root/kcna-scratch/pipeline-broken.yaml`, apply, and watch it fail:
 ```bash
 kubectl get pipelinerun ci-run-2-broken -w
 ```
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl get pipelinerun ci-run-2-broken` should show `SUCCEEDED: False` -- the `verify` Task's `grep` fails to find `kcna-build-artifact-v1` in the wrong content, which fails the whole run. Confirm both runs' final state:
+
+```bash
+kubectl get pipelinerun ci-run-2-broken -o jsonpath='{.status.conditions[?(@.type=="Succeeded")].status}{"\n"}'
+```{{exec}}
+
+```bash
+kubectl get pipelinerun ci-run-1 -o jsonpath='{.status.conditions[?(@.type=="Succeeded")].status}{"\n"}'
+```{{exec}}
+
+Expect `False` then `True` -- the broken run fails, and the original good run from Step 1 is untouched.
+
+</details>

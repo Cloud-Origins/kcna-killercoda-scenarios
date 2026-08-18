@@ -32,3 +32,19 @@ kubectl -n argocd get application guestbook -w
 ```
 
 Wait for `SYNC STATUS` to reach `Synced` and `HEALTH STATUS` to reach `Healthy`.
+
+<br>
+
+<details><summary>Solution</summary>
+
+`kubectl -n argocd get application guestbook` should show `SYNC STATUS: Synced` and `HEALTH STATUS: Healthy`, and there should be at least one Deployment actually created in the `guestbook` namespace -- proof ArgoCD applied the manifests, not just recorded intent:
+
+```bash
+kubectl -n argocd get application guestbook -o jsonpath='{.status.sync.status} {.status.health.status}{"\n"}'
+```{{exec}}
+
+```bash
+kubectl -n guestbook get deploy
+```{{exec}}
+
+</details>

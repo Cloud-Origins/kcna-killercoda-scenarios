@@ -14,3 +14,13 @@ kubectl get hpa cpu-app -w
 ```
 
 Once `REPLICAS` climbs past 1, you've watched a real autoscale event, not a status field someone set by hand.
+
+<br>
+
+<details><summary>Solution</summary>
+
+After the busy-loop patch, `kubectl get deploy cpu-app -o jsonpath='{.spec.template.spec.containers[0].command[2]}'` should return `while true; do :; done`.
+
+Give it a minute or two, then `kubectl get hpa cpu-app` should show `REPLICAS` greater than `1` (up to `4`, the configured `maxReplicas`) and `TARGETS` well above `50%` before it starts climbing back down as replicas absorb the load. If `currentReplicas` is still `1` after several minutes, check `kubectl describe hpa cpu-app` for scaling events.
+
+</details>

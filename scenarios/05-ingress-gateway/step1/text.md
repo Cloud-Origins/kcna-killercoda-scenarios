@@ -24,3 +24,27 @@ spec:
 ```
 
 Apply it, get the ingress controller's external IP/port, and curl `/app1`.
+
+<br>
+
+<details><summary>Tip</summary>
+
+The Ingress controller is fronted by its own Service, not by `apps-ingress` directly. Find its `NodePort`:
+
+```bash
+kubectl get svc -n ingress-nginx ingress-nginx-controller
+```{{exec}}
+
+</details>
+
+<details><summary>Solution</summary>
+
+```bash
+NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+NODE_PORT=$(kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[?(@.name=="http")].nodePort}')
+curl -s "http://$NODE_IP:$NODE_PORT/app1"
+```
+
+Expect the response to include `server address` (the app1 pod answering through the Ingress).
+
+</details>
